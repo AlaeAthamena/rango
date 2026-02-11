@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 
 def index(request):
-    return HttpResponse("Rango says hey there partner!")
+    # Data we want to show in the template
+    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+
+    # Render the template 'rango/index.html' with the context
+    return render(request, 'rango/index.html', context=context_dict)
