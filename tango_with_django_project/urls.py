@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from rango import views
+from django.urls import path, include
 from django.contrib import admin
-from django.urls import path
 
 urlpatterns = [
+    path('', views.index, name='index'),        # Home page shows Rango index
+    path('rango/', include('rango.urls')),      # URLs starting with rango/ go to the app
     path('admin/', admin.site.urls),
 ]
